@@ -11,32 +11,32 @@ using namespace std;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //GPIO Pins
-int d0_pin = 26;        //data pins
-int d1_pin = 27;
-int d2_pin = 28;
-int d3_pin = 29;
-int d4_pin = 32;
-int d5_pin = 36;
+int d0_pin = 31;        //data pins: 240X128 pin 11-18
+int d1_pin = 32;
+int d2_pin = 33;
+int d3_pin = 35;
+int d4_pin = 36;
+int d5_pin = 37;
 int d6_pin = 38;
 int d7_pin = 40;
-int enable_pin = 31;
-int cs_1_pin = 33;      //chip select
-int dc_pin = 18;
+int wr_pin = 22;     //write: 240X128 pin 5 (active low)
+int cs_1_pin = 16;      //chip select: 240X128 pin 7 (active low)
+int dc_pin = 18;        //Command/data: 240S128 pin 8
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Screen init
-U8G2_T6963_240X128_F_8080 screen_1(U8G2_R0, d0_pin, d1_pin, d2_pin, d3_pin, d4_pin, d5_pin, d6_pin, d7_pin, enable_pin, cs_1_pin, dc_pin);
+U8G2_T6963_240X128_F_8080 screen_1(U8G2_R0, d0_pin, d1_pin, d2_pin, d3_pin, d4_pin, d5_pin, d6_pin, d7_pin, wr_pin, cs_1_pin, dc_pin);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Functions
-void drawFord(u8g2 *u8g2) {
+//Drawing Functions
+void drawPage1(u8g2 *u8g2) {
     u8g2_ClearBuffer(u8g2);
     u8g2.SetFont(u8g2_font_ncenB24_mf);
     u8g2.drawStr(0, 40, "FORD");
     u8g2_SendBuffer(u8g2);
 }
 
-void drawBronco(u8g2 *u8g2) {
+void drawPage2(u8g2 *u8g2) {
     u8g2_ClearBuffer(u8g2);
     u8g2.SetFont(u8g2_font_ncenB24_mf);
     u8g2.drawStr(0, 40, "BRONCO");
@@ -57,9 +57,9 @@ int main() {
     //Run display loop
     while (!complete) {
         //Run Banner Animation
-        drawFord(&screen_1);
+        drawPage1(&screen_1);
         delay(5000);
-        drawBronco(&screen_1);
+        drawPage2(&screen_1);
         delay(5000);
     }
 
