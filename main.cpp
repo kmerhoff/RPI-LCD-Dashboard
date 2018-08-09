@@ -11,17 +11,17 @@ using namespace std;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //GPIO Pins
-int d0_pin = 31;        //data pins: 240X128 pin 11-18
-int d1_pin = 32;
-int d2_pin = 33;
-int d3_pin = 35;
-int d4_pin = 36;
-int d5_pin = 37;
-int d6_pin = 38;
-int d7_pin = 40;
-int wr_pin = 22;     //write: 240X128 pin 5 (active low)
-int cs_1_pin = 16;      //chip select: 240X128 pin 7 (active low)
-int dc_pin = 18;        //Command/data: 240S128 pin 8
+int d0_pin = 11;        //data pins: 240X128 pin 11-18
+int d1_pin = 13;
+int d2_pin = 15;
+int d3_pin = 29;
+int d4_pin = 31;
+int d5_pin = 33;
+int d6_pin = 35;
+int d7_pin = 37;
+int wr_pin = 36;     //write: 240X128 pin 5 (active low)
+int cs_1_pin = 38;      //chip select: 240X128 pin 7 (active low)
+int dc_pin = 40;        //Command/data: 240S128 pin 8
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Screen init
