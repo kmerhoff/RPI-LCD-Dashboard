@@ -39,14 +39,14 @@ message(STATUS "[U8G2] U8G2_LIBRARIES = ${U8G2_LIBRARIES}")
 message(STATUS "[WIRING-PI] WIRINGPI_LIBRARIES = ${WIRINGPI_LIBRARIES}")
 message(STATUS "[WIRING-PI] WIRINGPI_INCLUDE_DIR = ${WIRINGPI_INCLUDE_DIR}")
 
-add_executable(u8g2demo main.h main.cpp ${U8G2_HEADER_FILES} ${U8G2_SRC_FILES} spi.cpp spi.h u8g2_hal_rpi.cpp u8g2_hal_rpi.h)
+add_executable(main.h main.cpp ${U8G2_HEADER_FILES} ${U8G2_SRC_FILES} spi.cpp spi.h u8g2_hal_rpi.cpp u8g2_hal_rpi.h)
 
 include_directories(${LIB_DIR}/bcm2835/src)
 include_directories(${WIRINGPI_INCLUDE_DIR} ${U8G2_INCLUDE_DIR})
 target_link_libraries(u8g2demo ${WIRINGPI_LIBRARIES})
 
 if (TARGET wiringPi)
-    add_dependencies(u8g2demo wiringPi)
+    add_dependencies(wiringPi)
 endif ()
 
 if (TARGET u8g2)
